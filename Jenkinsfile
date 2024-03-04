@@ -12,33 +12,36 @@ pipeline {
             }
         }
 
-        // stage('Setup Environment') {
-        //     steps {
-        //         script {
-        //             // sh 'pip install -r requirements.txt'
-        //         }
-        //     }
-        // }
-
-        stage('Build') {
+        stage('Setup Environment') {
             steps {
-                docker build -t anindyamaitra/flask-app:latest .
-                docker run -it -p 1234:5000 anindyamaitra/flask-app:latest
+                script {
+                    sh 'python3 -m venv venv'
+                    sh '. venv/bin/activate'
+                    sh 'pip install pytest'
+                }
             }
         }
 
-        // stage('Test') {
-        //     steps {
-        //         script {
-        //             // sh 'pytest'
-        //         }
-        //     }
-        // }
+        stage('Build') {
+            steps {
+                echo 'Building the project...'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                script {
+                    sh '. venv/bin/activate'
+                    sh 'pytest'
+                }
+            }
+        }
     }
 
     post {
         always {
             echo 'Cleaning up...'
+            sh 'rm -rf venv'
         }
 
         success {
