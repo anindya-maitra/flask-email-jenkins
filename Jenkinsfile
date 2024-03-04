@@ -27,7 +27,7 @@ pipeline {
                 echo 'Building the project...'
                 // sh 'sudo docker build -t anindyamaitra/flask-app:latest .'
                 // sh 'sudo docker run -it -p 1234:5000 anindyamaitra/flask-app:latest'
-                sh 'BUILD_ID=dontKillMe nohup python3 -m flask run --host=0.0.0.0 &'
+                sh 'BUILD_ID=dontKillMe nohup python3 -m flask run --host=3.235.7.224 &'
             }
         }
 
