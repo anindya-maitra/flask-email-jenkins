@@ -15,7 +15,7 @@ pipeline {
         stage('Setup Environment') {
             steps {
                 script {
-                    sh 'pip3 install pytest'
+                    sh 'pip install -r requirements.txt'
                 }
             }
         }
