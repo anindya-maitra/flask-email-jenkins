@@ -21,7 +21,15 @@ pipeline {
                 }
             }
         }
-
+       stage('Test') {
+            steps {
+                script {
+                    sh '. venv/bin/activate'
+                    sh 'python3 -m pytest'
+                }
+            }
+        }
+    }
         stage('Build') {
             steps {
                 echo 'Building the project...'
@@ -31,15 +39,7 @@ pipeline {
             }
         }
 
-        stage('Test') {
-            steps {
-                script {
-                    sh '. venv/bin/activate'
-                    sh 'python3 -m pytest'
-                }
-            }
-        }
-    }
+     
 
     post {
         always {
