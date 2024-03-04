@@ -27,7 +27,7 @@ pipeline {
                 echo 'Building the project...'
                 // sh 'sudo docker build -t anindyamaitra/flask-app:latest .'
                 // sh 'sudo docker run -it -p 1234:5000 anindyamaitra/flask-app:latest'
-                python3 app.py
+                sh 'python3 app.py'
             }
         }
 
