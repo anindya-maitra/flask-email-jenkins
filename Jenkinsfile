@@ -29,7 +29,6 @@ pipeline {
                 }
             }
         }
-    }
         stage('Build') {
             steps {
                 echo 'Building the project...'
@@ -39,7 +38,7 @@ pipeline {
             }
         }
 
-     
+    }
 
     post {
         always {
