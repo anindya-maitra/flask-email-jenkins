@@ -15,8 +15,6 @@ pipeline {
         stage('Setup Environment') {
             steps {
                 script {
-                    sh 'python3 -m venv venv'
-                    sh '. venv/bin/activate'
                     sh 'pip install pytest'
                 }
             }
@@ -31,7 +29,6 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    sh '. venv/bin/activate'
                     sh 'pytest'
                 }
             }
@@ -41,7 +38,6 @@ pipeline {
     post {
         always {
             echo 'Cleaning up...'
-            sh 'rm -rf venv'
         }
 
         success {
