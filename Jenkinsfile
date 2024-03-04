@@ -12,13 +12,13 @@ pipeline {
             }
         }
 
-        stage('Setup Environment') {
-            steps {
-                script {
-                    // sh 'pip install -r requirements.txt'
-                }
-            }
-        }
+        // stage('Setup Environment') {
+        //     steps {
+        //         script {
+        //             // sh 'pip install -r requirements.txt'
+        //         }
+        //     }
+        // }
 
         stage('Build') {
             steps {
@@ -26,13 +26,13 @@ pipeline {
             }
         }
 
-        stage('Test') {
-            steps {
-                script {
-                    // sh 'pytest'
-                }
-            }
-        }
+        // stage('Test') {
+        //     steps {
+        //         script {
+        //             // sh 'pytest'
+        //         }
+        //     }
+        // }
     }
 
     post {
