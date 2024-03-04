@@ -15,7 +15,7 @@ pipeline {
         stage('Setup Environment') {
             steps {
                 script {
-                    sh 'pip install pytest'
+                    sh 'pip3 install pytest'
                 }
             }
         }
