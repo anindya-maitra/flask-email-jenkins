@@ -25,7 +25,6 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the project...'
-                sh 'sudo su'
                 sh 'docker build -t anindyamaitra/flask-app:latest .'
                 sh 'docker run -it -p 1234:5000 anindyamaitra/flask-app:latest'
             }
