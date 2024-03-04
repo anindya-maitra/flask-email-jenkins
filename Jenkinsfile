@@ -35,7 +35,7 @@ pipeline {
             steps {
                 script {
                     sh '. venv/bin/activate'
-                    sh 'pytest'
+                    sh 'python3 -m pytest'
                 }
             }
         }
